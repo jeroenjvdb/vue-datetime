@@ -135,6 +135,10 @@
             cancel: 'Cancel'
           }
         }
+      },
+      minuteStep: {
+        type: Number,
+        default: 1
       }
     },
 
@@ -216,7 +220,7 @@
         })
       },
       minutes () {
-        return util.minutes().map(minute => {
+        return util.minutes(minuteStep).map(minute => {
           return {
             number: minute,
             selected: parseInt(minute) === this.newDate.minute()

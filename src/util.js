@@ -44,11 +44,11 @@ export function hours () {
   return hours
 }
 
-export function minutes () {
+export function minutes (step) {
   let minutes = []
 
-  for (let i = 0; i < 60; i++) {
-    minutes.push(i < 10 ? '0' + i : i)
+  for (let i = 0; i*step < 60; i++) {
+    minutes.push(i*step < 10 ? '0' + i*step : i*step)
   }
 
   return minutes
