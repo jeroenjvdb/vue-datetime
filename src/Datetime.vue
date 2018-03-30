@@ -9,7 +9,7 @@
                :class="inputClass"
                :required="required"
                @click="open"
-               @focus="open"/>
+               @focus="open"/> 
         <transition name="vdatetime-fade">
             <div v-if="isOpen">
                 <div class="vdatetime-overlay" @click.self="close(false)"></div>
@@ -220,7 +220,7 @@
         })
       },
       minutes () {
-        return util.minutes(minuteStep).map(minute => {
+        return util.minutes(this.minuteStep).map(minute => {
           return {
             number: minute,
             selected: parseInt(minute) === this.newDate.minute()
