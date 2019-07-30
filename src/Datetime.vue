@@ -9,7 +9,7 @@
                :class="inputClass"
                :required="required"
                @click="open"
-               @focus="open"/> 
+               @focus="open"/>
         <transition name="vdatetime-fade">
             <div v-if="isOpen">
                 <div class="vdatetime-overlay" @click.self="close(false)"></div>
@@ -475,7 +475,7 @@
 
     .vdatetime-popup__date-picker__item {
         display: inline-block;
-        width: #{100%/7};
+        width: 14.28571%;
         line-height: 36px;
         text-align: center;
         font-size: 15px;
