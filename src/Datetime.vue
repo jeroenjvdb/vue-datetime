@@ -15,7 +15,7 @@
                 <div class="vdatetime-overlay" @click.self="close(false)"></div>
                 <div class="vdatetime-popup">
                     <div class="vdatetime-popup__header">
-                        <div class="vdatetime-popup__year" @click="showYearPicker">{{ newYear }}</div>
+                        <div class="vdatetime-popup__year" @click="showYearPicker">{{ newYear }} <i class="fa fa-angle-down" aria-hidden="true"></i></div>
                         {{ newDay }}
                     </div>
                     <div class="vdatetime-popup__body" ref="popupBody">
