@@ -152,7 +152,8 @@
         newDate: null,
         currentMonthDate: null,
         typeFlow: typeFlowFactory(this.type, this, date ? date.clone() : moment().locale(this.momentLocale)),
-        datePickerItemHeight: null
+        datePickerItemHeight: null,
+        timeMinutes: 0,
       }
     },
 
@@ -168,6 +169,14 @@
     created () {
       if (this.date) {
         this.$emit('input', this.typeFlow.isoDate())
+      }
+      const oldValue = moment(this.value).minutes();
+      const now = moment();
+      if(isNaN(moment(this.value).minutes())) {
+          this.selectMinute(now > 30 ? 0 : 30)
+      } else {
+        this.selectMinute(oldValue);
+
       }
     },
 
@@ -220,10 +229,15 @@
         })
       },
       minutes () {
+        let min = this.newDate.minute() ;
+        if(min != 0  ||min != 30) {
+            min = parseInt(min > 30 ? 0 : 30);
+        }
         return util.minutes(this.minuteStep).map(minute => {
+          console.log(this.newDate.minute());
           return {
             number: minute,
-            selected: parseInt(minute) === this.newDate.minute()
+            selected: parseInt(minute) === min,
           }
         })
       },
